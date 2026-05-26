@@ -13,7 +13,7 @@ if (!isset($_SESSION['account_id'])) {
     exit;
 }
 
-require_once __DIR__ . '../../model/product.php';
+require_once __DIR__ . '/../../model/product.php';
 
 $product = new Product();
 
