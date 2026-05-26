@@ -9,7 +9,7 @@
 </div><!-- /.page-content -->
 
 <!-- ── Site Footer ─────────────────────────────────────────── -->
-<footer class="py-3 mt-auto" style="background-color: #12172a; color: #8a96aa;">
+<footer class="py-3 fixed-bottom" style="background-color: #12172a; color: #8a96aa;">
     <div class="container-fluid px-4">
         <div class="row align-items-center">
             <div class="col-md-6 text-center text-md-start small">
