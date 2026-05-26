@@ -6,7 +6,7 @@ if (!isset($_SESSION['account_id'])) {
     exit;
 }
 
-require_once '../model/product.php';
+require_once __DIR__ . '/../model/product.php';
 
 $product_id   = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 $workspace_id = $_SESSION['workspace_id'];

@@ -4,7 +4,7 @@
 // populates the session, then redirects accordingly.
 // Never outputs HTML — redirect only.
 
-require_once '../../model/account.php'; // also loads db.php
+require_once __DIR__ . '/../../model/account.php'; // also loads db.php
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();

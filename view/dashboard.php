@@ -6,7 +6,7 @@ if (!isset($_SESSION['account_id'])) {
     exit;
 }
 
-require_once '../controller/prd/read.php';
+require_once __DIR__ . '/../controller/prd/read.php';
 
 $flash_success = '';
 $flash_error   = '';

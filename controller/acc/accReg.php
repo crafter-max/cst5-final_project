@@ -5,7 +5,7 @@
 // duplicate emails, hashes the password via Account::create(),
 // then redirects with a flash message.
 
-require_once '../../model/account.php'; // also loads db.php
+require_once __DIR__ . '/../../model/account.php'; // also loads db.php
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();

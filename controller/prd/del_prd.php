@@ -4,7 +4,7 @@
 // Deletes the product only if it belongs to the session workspace_id.
 // Always redirects to dashboard.php with a flash message.
 
-require_once '../../model/product.php'; // also loads db.php
+require_once __DIR__ . '/../../model/product.php'; // also loads db.php
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
