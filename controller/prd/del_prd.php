@@ -4,7 +4,7 @@
 // Deletes the product only if it belongs to the session workspace_id.
 // Always redirects to dashboard.php with a flash message.
 
-require_once 'product.php'; // also loads db.php
+require_once '../../model/product.php'; // also loads db.php
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -12,7 +12,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 // ── Auth guard ────────────────────────────────────────────────
 if (!isset($_SESSION['account_id'])) {
-    header('Location: index.php');
+    header('Location: ../../index.php');
     exit;
 }
 
@@ -22,7 +22,7 @@ $workspace_id = $_SESSION['workspace_id'];
 
 if ($product_id <= 0) {
     $_SESSION['flash_error'] = 'Invalid product.';
-    header('Location: dashboard.php');
+    header('Location: ../../view/dashboard.php');
     exit;
 }
 
@@ -37,5 +37,5 @@ if ($deleted) {
     $_SESSION['flash_error'] = 'Product could not be deleted or was not found.';
 }
 
-header('Location: dashboard.php');
+header('Location: ../../view/dashboard.php');
 exit;

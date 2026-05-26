@@ -1,6 +1,5 @@
 <?php
 // header.php — Shared page header.
-// Required at the top of every view file.
 // Starts the session once (safe to call from any view), then outputs
 // the HTML <head> and the navbar (only when the user is logged in).
 
@@ -28,7 +27,7 @@ if (session_status() === PHP_SESSION_NONE) {
 <!-- ── Navbar (authenticated) ───────────────────────────────── -->
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid px-4">
-        <a class="navbar-brand" href="dashboard.php">
+        <a class="navbar-brand" href="../dashboard.php">
             Paragryph&nbsp;<span class="accent">InvSys</span>
         </a>
 
@@ -43,8 +42,8 @@ if (session_status() === PHP_SESSION_NONE) {
             <!-- Left links -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link <?= basename($_SERVER['PHP_SELF']) === 'dashboard.php' ? 'active' : '' ?>"
-                       href="dashboard.php">
+                    <a class="nav-link <?= basename($_SERVER['PHP_SELF']) === '../dashboard.php' ? 'active' : '' ?>"
+                       href="../dashboard.php">
                         <i class="bi bi-boxes me-1"></i>Products
                     </a>
                 </li>
@@ -64,7 +63,7 @@ if (session_status() === PHP_SESSION_NONE) {
                         <?= htmlspecialchars($_SESSION['email']) ?>
                     </div>
                 </div>
-                <a href="logout.php" class="btn btn-outline-light btn-sm">
+                <a href="../../controller/acc/logout.php" class="btn btn-outline-light btn-sm">
                     <i class="bi bi-box-arrow-right me-1"></i>Logout
                 </a>
             </div>

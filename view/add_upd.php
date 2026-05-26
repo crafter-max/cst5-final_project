@@ -1,14 +1,12 @@
 <?php
-// add_upd.php — Add / Update product view.
-
 require_once __DIR__ . '/frame/header.php';
 
 if (!isset($_SESSION['account_id'])) {
-    header('Location: index.php');
+    header('Location: ../index.php');
     exit;
 }
 
-require_once 'product.php';
+require_once '../model/product.php';
 
 $workspace_id = $_SESSION['workspace_id'];
 $product      = new Product();
@@ -72,7 +70,7 @@ $page_title = $is_update ? 'Edit Product' : 'Add New Product';
             </div>
         <?php endif; ?>
 
-        <form action="cre_upd_prd.php" method="POST" novalidate>
+        <form action="../controller/prd/cre_upd_prd.php" method="POST" novalidate>
             <input type="hidden" name="product_id"
                    value="<?= $is_update ? (int)$row['product_id'] : '' ?>">
 
@@ -185,4 +183,4 @@ $page_title = $is_update ? 'Edit Product' : 'Add New Product';
 </div>
 </div>
 
-<?php require_once __DIR__ . '/view/footer.php'; ?>
+<?php require_once __DIR__ . '/frame/footer.php'; ?>

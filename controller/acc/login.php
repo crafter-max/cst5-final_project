@@ -4,7 +4,7 @@
 // populates the session, then redirects accordingly.
 // Never outputs HTML — redirect only.
 
-require_once 'account.php'; // also loads db.php
+require_once '../../model/account.php'; // also loads db.php
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -12,7 +12,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 // Only accept POST requests.
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: index.php');
+    header('Location: ../../index.php');
     exit;
 }
 
@@ -22,7 +22,7 @@ $password = trim($_POST['password'] ?? '');
 // ── Basic presence check ──────────────────────────────────────
 if (empty($email) || empty($password)) {
     $_SESSION['flash_error'] = 'Email and password are required.';
-    header('Location: index.php');
+    header('Location: ../../index.php');
     exit;
 }
 
@@ -32,7 +32,7 @@ $row     = $account->findByEmail($email);
 
 if (!$row || !password_verify($password, $row['password'])) {
     $_SESSION['flash_error'] = 'Invalid email or password.';
-    header('Location: index.php');
+    header('Location: ../../index.php');
     exit;
 }
 
@@ -45,5 +45,5 @@ $_SESSION['first_name']   = $row['first_name'];
 $_SESSION['last_name']    = $row['last_name'];
 $_SESSION['email']        = $row['email'];
 
-header('Location: dashboard.php');
+header('Location: ../../view/dashboard.php');
 exit;

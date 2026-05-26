@@ -1,14 +1,12 @@
 <?php
-// prd_view.php — Single product detail view.
-
 require_once __DIR__ . '/frame/header.php';
 
 if (!isset($_SESSION['account_id'])) {
-    header('Location: index.php');
+    header('Location: ../index.php');
     exit;
 }
 
-require_once 'product.php';
+require_once '../model/product.php';
 
 $product_id   = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 $workspace_id = $_SESSION['workspace_id'];
@@ -144,7 +142,7 @@ $qty_class    = $qty === 0 ? 'qty-zero' : ($p['status'] === 'low_stock' ? 'qty-l
                            class="btn btn-light fw-semibold">
                             <i class="bi bi-pencil me-1"></i>Edit Product
                         </a>
-                        <a href="del_prd.php?id=<?= (int)$p['product_id'] ?>"
+                        <a href="../controller/prd/del_prd.php?id=<?= (int)$p['product_id'] ?>"
                            class="btn btn-outline-danger"
                            onclick="return confirm('Delete \'<?= addslashes(htmlspecialchars($p['product_name'])) ?>\'? This cannot be undone.')">
                             <i class="bi bi-trash me-1"></i>Delete Product
@@ -165,4 +163,4 @@ $qty_class    = $qty === 0 ? 'qty-zero' : ($p['status'] === 'low_stock' ? 'qty-l
     </div>
 </div>
 
-<?php require_once __DIR__ . '/view/footer.php'; ?>
+<?php require_once __DIR__ . '/frame/footer.php'; ?>

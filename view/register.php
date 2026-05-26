@@ -1,6 +1,4 @@
 <?php
-// register.php — Account registration view.
-
 require_once __DIR__ . '/frame/header.php';
 
 if (isset($_SESSION['account_id'])) {
@@ -47,7 +45,7 @@ unset($_SESSION['flash_old']);
         <?php endif; ?>
 
         <!-- Form -->
-        <form action="accReg.php" method="POST" novalidate>
+        <form action="controller/acc/accReg.php" method="POST" novalidate>
 
             <!-- Workspace ID -->
             <div class="mb-3">
@@ -154,10 +152,10 @@ unset($_SESSION['flash_old']);
 
         <p class="text-center small mb-0" style="color:var(--text-muted);">
             Already have an account?
-            <a href="index.php" class="fw-semibold">Sign in</a>
+            <a href="../index.php" class="fw-semibold">Sign in</a>
         </p>
 
     </div>
 </div>
 
-<?php require_once __DIR__ . '/view/footer.php'; ?>
+<?php require_once __DIR__ . '/frame/footer.php'; ?>

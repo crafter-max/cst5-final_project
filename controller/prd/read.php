@@ -9,11 +9,11 @@
 
 // Guard: must be require'd, not accessed directly.
 if (!isset($_SESSION['account_id'])) {
-    header('Location: index.php');
+    header('Location: ../../index.php');
     exit;
 }
 
-require_once __DIR__ . '/product.php';
+require_once __DIR__ . '../../model/product.php';
 
 $product = new Product();
 

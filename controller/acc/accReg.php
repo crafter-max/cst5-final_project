@@ -5,14 +5,14 @@
 // duplicate emails, hashes the password via Account::create(),
 // then redirects with a flash message.
 
-require_once 'account.php'; // also loads db.php
+require_once '../../model/account.php'; // also loads db.php
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: register.php');
+    header('Location: ../../view/register.php');
     exit;
 }
 
@@ -53,7 +53,7 @@ if (!empty($data['hire_date']) && !strtotime($data['hire_date'])) {
 if (!empty($errors)) {
     $_SESSION['flash_error'] = implode(' ', $errors);
     $_SESSION['flash_old']   = $data; // repopulate form fields
-    header('Location: register.php');
+    header('Location: ../../view/register.php');
     exit;
 }
 
@@ -63,14 +63,14 @@ $account = new Account();
 if (!$account->workspaceExists($data['workspace_id'])) {
     $_SESSION['flash_error'] = 'Workspace ID does not exist. Contact your administrator.';
     $_SESSION['flash_old']   = $data;
-    header('Location: register.php');
+    header('Location: ../../view/register.php');
     exit;
 }
 
 if ($account->emailExists($data['email'])) {
     $_SESSION['flash_error'] = 'That email address is already registered.';
     $_SESSION['flash_old']   = $data;
-    header('Location: register.php');
+    header('Location: ../../view/register.php');
     exit;
 }
 
@@ -85,10 +85,10 @@ $account->password     = $password; // Account::create() hashes this
 
 if ($account->create()) {
     $_SESSION['flash_success'] = 'Account created successfully. You can now sign in.';
-    header('Location: register.php');
+    header('Location: ../../view/register.php');
 } else {
     $_SESSION['flash_error'] = 'Registration failed. Please try again.';
     $_SESSION['flash_old']   = $data;
-    header('Location: register.php');
+    header('Location: ../../view/register.php');
 }
 exit;

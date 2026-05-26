@@ -4,7 +4,7 @@
 require_once __DIR__ . '/view/frame/header.php';
 
 if (isset($_SESSION['account_id'])) {
-    header('Location: dashboard.php');
+    header('Location: view/dashboard.php');
     exit;
 }
 
@@ -33,7 +33,7 @@ if (!empty($_SESSION['flash_error'])) {
         <?php endif; ?>
 
         <!-- Form -->
-        <form action="login.php" method="POST" novalidate>
+        <form action="controller/acc/login.php" method="POST" novalidate>
 
             <div class="mb-3">
                 <label for="email" class="form-label fw-semibold">Email address</label>
@@ -62,7 +62,7 @@ if (!empty($_SESSION['flash_error'])) {
 
         <p class="text-center small mb-0" style="color:var(--text-muted);">
             No account yet?
-            <a href="register.php" class="fw-semibold">Register here</a>
+            <a href="view/register.php" class="fw-semibold">Register here</a>
         </p>
 
     </div>

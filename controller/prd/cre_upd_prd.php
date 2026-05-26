@@ -5,7 +5,7 @@
 // under the session workspace_id — NOT by trusting the form alone.
 // workspace_id always comes from $_SESSION, never from form input.
 
-require_once 'product.php'; // also loads db.php
+require_once '../../model/product.php'; // also loads db.php
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -13,13 +13,13 @@ if (session_status() === PHP_SESSION_NONE) {
 
 // ── Auth guard ────────────────────────────────────────────────
 if (!isset($_SESSION['account_id'])) {
-    header('Location: index.php');
+    header('Location: ../../index.php');
     exit;
 }
 
 // ── Accept POST only ──────────────────────────────────────────
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: dashboard.php');
+    header('Location: ../../view/dashboard.php');
     exit;
 }
 
@@ -67,8 +67,8 @@ if (!empty($errors)) {
         'quantity' => $quantity, 'unit_price' => $unit_price, 'status' => $status,
     ];
     $redirect = ($product_id !== null)
-        ? "add_upd.php?id={$product_id}"
-        : "add_upd.php";
+        ? "../../view/add_upd.php?id={$product_id}"
+        : "../../view/add_upd.php";
     header("Location: {$redirect}");
     exit;
 }
@@ -108,5 +108,5 @@ if ($success) {
     $_SESSION['flash_error'] = $msg_err;
 }
 
-header('Location: dashboard.php');
+header('Location: ../../view/dashboard.php');
 exit;

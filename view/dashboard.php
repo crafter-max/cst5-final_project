@@ -1,15 +1,12 @@
 <?php
-// dashboard.php — Main product list view.
-// Requires the session, then uses read.php to fetch and filter products.
-
 require_once __DIR__ . '/frame/header.php';
 
 if (!isset($_SESSION['account_id'])) {
-    header('Location: index.php');
+    header('Location: ../index.php');
     exit;
 }
 
-require_once 'read.php';
+require_once '../controller/prd/read.php';
 
 $flash_success = '';
 $flash_error   = '';
@@ -193,7 +190,7 @@ if (!empty($_SESSION['flash_error'])) {
                                        class="btn btn-sm btn-outline-primary" title="Edit">
                                         <i class="bi bi-pencil"></i>
                                     </a>
-                                    <a href="del_prd.php?id=<?= (int)$p['product_id'] ?>"
+                                    <a href="../controller/prd/del_prd.php?id=<?= (int)$p['product_id'] ?>"
                                        class="btn btn-sm btn-outline-danger" title="Delete"
                                        onclick="return confirm('Delete \'<?= addslashes(htmlspecialchars($p['product_name'])) ?>\'? This cannot be undone.')">
                                         <i class="bi bi-trash"></i>
@@ -209,4 +206,4 @@ if (!empty($_SESSION['flash_error'])) {
     </div>
 </div>
 
-<?php require_once __DIR__ . '/view/footer.php'; ?>
+<?php require_once __DIR__ . '/frame/footer.php'; ?>
