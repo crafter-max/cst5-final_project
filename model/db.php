@@ -15,11 +15,12 @@ class Database {
     public function __construct() {
         $this->loadEnv(__DIR__ . '/.env');
 
-        $this->host     = $_ENV['DB_HOST'] ?? 'localhost';
-        $this->port     = (int)($_ENV['DB_PORT'] ?? 3306);
-        $this->db_name  = $_ENV['DB_NAME'] ?? '';
-        $this->username = $_ENV['DB_USER'] ?? 'root';
-        $this->password = $_ENV['DB_PASS'] ?? '';
+        // Prioritize Railway's getenv() variables, fall back to local $_ENV or defaults
+        $this->host     = getenv('MYSQLHOST')     ?: ($_ENV['DB_HOST'] ?? 'localhost');
+        $this->port     = (int)(getenv('MYSQLPORT') ?: ($_ENV['DB_PORT'] ?? 3306));
+        $this->db_name  = getenv('MYSQLDATABASE') ?: ($_ENV['DB_NAME'] ?? '');
+        $this->username = getenv('MYSQLUSER')     ?: ($_ENV['DB_USER'] ?? 'root');
+        $this->password = getenv('MYSQLPASSWORD') ?: ($_ENV['DB_PASS'] ?? '');
     }
 
     /**
