@@ -45,7 +45,7 @@ unset($_SESSION['flash_old']);
         <?php endif; ?>
 
         <!-- Form -->
-        <form action="controller/acc/accReg.php" method="POST" novalidate>
+        <form action="../controller/acc/accReg.php" method="POST" novalidate>
 
             <!-- Workspace ID -->
             <div class="mb-3">
