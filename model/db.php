@@ -15,12 +15,12 @@ class Database {
     public function __construct() {
         $this->loadEnv(__DIR__ . '/.env');
 
-        // Prioritize Railway's getenv() variables, fall back to local $_ENV or defaults
-        $this->host     = getenv('MYSQLHOST')     ?: ($_ENV['DB_HOST'] ?? 'localhost');
-        $this->port     = (int)(getenv('MYSQLPORT') ?: ($_ENV['DB_PORT'] ?? 3306));
-        $this->db_name  = getenv('MYSQLDATABASE') ?: ($_ENV['DB_NAME'] ?? '');
-        $this->username = getenv('MYSQLUSER')     ?: ($_ENV['DB_USER'] ?? 'root');
-        $this->password = getenv('MYSQLPASSWORD') ?: ($_ENV['DB_PASS'] ?? '');
+        // Covers FrankenPHP ($_SERVER), Railway standard (getenv), and local (.env/$_ENV)
+        $this->host     = $_SERVER['DB_HOST'] ?? (getenv('DB_HOST') ?: ($_ENV['DB_HOST'] ?? 'localhost'));
+        $this->port     = (int)($_SERVER['DB_PORT'] ?? (getenv('DB_PORT') ?: ($_ENV['DB_PORT'] ?? 3306)));
+        $this->db_name  = $_SERVER['DB_NAME'] ?? (getenv('DB_NAME') ?: ($_ENV['DB_NAME'] ?? ''));
+        $this->username = $_SERVER['DB_USER'] ?? (getenv('DB_USER') ?: ($_ENV['DB_USER'] ?? 'root'));
+        $this->password = $_SERVER['DB_PASS'] ?? (getenv('DB_PASS') ?: ($_ENV['DB_PASS'] ?? ''));
     }
 
     /**
