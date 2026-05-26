@@ -1,7 +1,7 @@
 <?php
 // prd_view.php — Single product detail view.
 
-require_once 'header.php';
+require_once __DIR__ . '/frame/header.php';
 
 if (!isset($_SESSION['account_id'])) {
     header('Location: index.php');
@@ -165,4 +165,4 @@ $qty_class    = $qty === 0 ? 'qty-zero' : ($p['status'] === 'low_stock' ? 'qty-l
     </div>
 </div>
 
-<?php require_once 'footer.php'; ?>
+<?php require_once __DIR__ . '/view/footer.php'; ?>

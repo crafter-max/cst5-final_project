@@ -1,7 +1,7 @@
 <?php
 // register.php — Account registration view.
 
-require_once 'header.php';
+require_once __DIR__ . '/frame/header.php';
 
 if (isset($_SESSION['account_id'])) {
     header('Location: dashboard.php');
@@ -160,4 +160,4 @@ unset($_SESSION['flash_old']);
     </div>
 </div>
 
-<?php require_once 'footer.php'; ?>
+<?php require_once __DIR__ . '/view/footer.php'; ?>

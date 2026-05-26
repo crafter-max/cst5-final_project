@@ -2,7 +2,7 @@
 // dashboard.php — Main product list view.
 // Requires the session, then uses read.php to fetch and filter products.
 
-require_once 'header.php';
+require_once __DIR__ . '/frame/header.php';
 
 if (!isset($_SESSION['account_id'])) {
     header('Location: index.php');
@@ -209,4 +209,4 @@ if (!empty($_SESSION['flash_error'])) {
     </div>
 </div>
 
-<?php require_once 'footer.php'; ?>
+<?php require_once __DIR__ . '/view/footer.php'; ?>

@@ -1,7 +1,7 @@
 <?php
 // add_upd.php — Add / Update product view.
 
-require_once 'header.php';
+require_once __DIR__ . '/frame/header.php';
 
 if (!isset($_SESSION['account_id'])) {
     header('Location: index.php');
@@ -185,4 +185,4 @@ $page_title = $is_update ? 'Edit Product' : 'Add New Product';
 </div>
 </div>
 
-<?php require_once 'footer.php'; ?>
+<?php require_once __DIR__ . '/view/footer.php'; ?>
