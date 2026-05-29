@@ -1,9 +1,4 @@
 <?php
-// accReg.php — Account registration controller.
-// Receives POST from register.php.
-// Validates all fields, checks workspace existence, prevents
-// duplicate emails, hashes the password via Account::create(),
-// then redirects with a flash message.
 
 require_once __DIR__ . '/../../model/account.php'; // also loads db.php
 

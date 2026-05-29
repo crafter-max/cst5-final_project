@@ -1,9 +1,4 @@
 <?php
-// cre_upd_prd.php — Create or update product controller.
-// Receives POST from add_upd.php.
-// Decides INSERT vs UPDATE by querying the DB for product_id existence
-// under the session workspace_id — NOT by trusting the form alone.
-// workspace_id always comes from $_SESSION, never from form input.
 
 require_once __DIR__ . '/../../model/product.php'; // also loads db.php
 

@@ -1,24 +1,4 @@
 <?php
-// product.php — Product model.
-// Handles all DB operations on the products table, always scoped to workspace_id.
-//
-// Suggested full products table schema:
-//
-//   CREATE TABLE products (
-//       product_id   INT             NOT NULL AUTO_INCREMENT PRIMARY KEY,
-//       workspace_id VARCHAR(50)     NOT NULL,
-//       sku          VARCHAR(100)    NOT NULL,
-//       product_name VARCHAR(150)    NOT NULL,
-//       category     VARCHAR(100)    NOT NULL DEFAULT 'Uncategorized',
-//       description  TEXT,
-//       quantity     INT             NOT NULL DEFAULT 0,
-//       unit_price   DECIMAL(10, 2)  NOT NULL DEFAULT 0.00, ----problematic in type railway
-//       supplier     VARCHAR(150),
-//       status       ENUM('active','inactive','low_stock') NOT NULL DEFAULT 'active', ----problematic in type railway
-//       date_added   DATETIME        NOT NULL DEFAULT CURRENT_TIMESTAMP,
-//       last_updated DATETIME        NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-//       FOREIGN KEY (workspace_id) REFERENCES workspace(workspace_id)
-//   );
 
 require_once __DIR__ . '/db.php';
 

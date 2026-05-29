@@ -1,21 +1,4 @@
 <?php
-// account.php — Account model.
-// Handles all DB operations related to the accounts table.
-//
-// NOTE: Your accounts table schema should include a `password` (VARCHAR 255) column
-// to support login. Suggested full schema:
-//
-//   CREATE TABLE accounts (
-//       account_id   INT          NOT NULL AUTO_INCREMENT PRIMARY KEY,
-//       workspace_id VARCHAR(50)  NOT NULL,
-//       first_name   VARCHAR(100) NOT NULL,
-//       last_name    VARCHAR(100) NOT NULL,
-//       contact      VARCHAR(20)  NOT NULL,
-//       email        VARCHAR(150) NOT NULL UNIQUE,
-//       hire_date    DATE         NOT NULL,
-//       password     VARCHAR(255) NOT NULL,
-//       FOREIGN KEY (workspace_id) REFERENCES workspace(workspace_id)
-//   );
 
 require_once __DIR__ . '/db.php';
 

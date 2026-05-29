@@ -1,8 +1,4 @@
 <?php
-// login.php — Login controller.
-// Receives POST from index.php, validates credentials,
-// populates the session, then redirects accordingly.
-// Never outputs HTML — redirect only.
 
 require_once __DIR__ . '/../../model/account.php'; // also loads db.php
 

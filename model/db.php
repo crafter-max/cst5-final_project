@@ -1,8 +1,4 @@
 <?php
-// db.php — Database connection model.
-// Reads credentials from the .env file in the project root.
-// No external library required — uses a lightweight built-in parser.
-// All model files (account.php, product.php) instantiate this class.
 
 class Database {
     private string $host;
