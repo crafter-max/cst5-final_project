@@ -31,7 +31,7 @@ class Product {
 
         if (!empty($filters['category'])) $sql .= " AND category = :category";
         if (!empty($filters['status']))   $sql .= " AND status = :status";
-        if (!empty($filters['search']))   $sql .= " AND (product_name LIKE :search OR sku LIKE :search)";
+        if (!empty($filters['search']))   $sql .= " AND (product_name OR sku LIKE :search)";
 
         $sql .= " ORDER BY date_added DESC";
 
